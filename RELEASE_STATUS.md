@@ -11,6 +11,10 @@ Initial student release candidate; not yet a production acceptance tag.
   halo checks and explicit radial/angular Earth-MI checks. This machine does
   not have detected OpenMP, so these do not establish actual OMP2 acceptance.
 - Launcher profile/environment-isolation and invalid-duration unit tests: passed.
+- Local 64-step four-radial-tile (24 MPI) Earth/MI parity: passed at
+  12.2465 physical seconds against the six-face reference; largest reported
+  scaled MHD difference 1.554312e−15, below the unchanged 1e−12 criterion.
+  This is a short parity check, not three-hour physical validation.
 - Public Linux CI run 39392107337: passed production build, selected
   numerical tests, launcher tests, MPI/parallel-HDF5 smoke and plotting.
   Smoke reached 1.14811266 s in six steps, with two complete frames,
