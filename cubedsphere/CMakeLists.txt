@@ -353,6 +353,16 @@ if(MPI_C_FOUND)
         set_tests_properties(cubedsphere_earth_mi_tiled_cadence_parity
             PROPERTIES PROCESSORS 12 TIMEOUT 600
             ENVIRONMENT GAMERA_CS_PARITY_STEPS=64)
+        add_test(NAME cubedsphere_earth_mi_interior_tile_parity
+            COMMAND ${Python3_EXECUTABLE}
+                ${CMAKE_CURRENT_SOURCE_DIR}/tests/check_tiled_mi_earth_parity.py
+                $<TARGET_FILE:test_cubedsphere_dipole_background>
+                $<TARGET_FILE:test_cubedsphere_mpi_earth_tile>
+                ${MPIEXEC_EXECUTABLE} ${CS_MPIEXEC_EXTRA_FLAGS}
+                ${MPIEXEC_NUMPROC_FLAG})
+        set_tests_properties(cubedsphere_earth_mi_interior_tile_parity
+            PROPERTIES PROCESSORS 24 TIMEOUT 600
+            ENVIRONMENT "GAMERA_CS_PARITY_STEPS=64;GAMERA_CS_PARITY_RADIAL_TILES=4")
         add_test(NAME cubedsphere_earth_mi_mpi_parity
             COMMAND ${Python3_EXECUTABLE}
                 ${CMAKE_CURRENT_SOURCE_DIR}/tests/check_mpi_earth_parity.py

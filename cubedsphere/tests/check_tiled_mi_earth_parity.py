@@ -33,6 +33,9 @@ def main():
     serial, tiled, launcher = sys.argv[1:4]
     launcher_args = sys.argv[4:]
     steps = int(os.environ.get("GAMERA_CS_PARITY_STEPS", "2"))
+    radial_tiles = int(os.environ.get("GAMERA_CS_PARITY_RADIAL_TILES", "2"))
+    if radial_tiles not in (2, 4):
+        raise ValueError("Earth parity supports two or four radial tiles")
     if steps < 1:
         raise ValueError("GAMERA_CS_PARITY_STEPS must be positive")
     environment = os.environ.copy()
@@ -48,8 +51,8 @@ def main():
         pieces = Path(tmp) / "tiled.csv"
         run([serial, "earth-mi-local", str(steps), str(reference)], environment)
         tiled_env = dict(environment, GAMERA_CS_TILE_TEST_MI="1")
-        tiled_log = run([launcher, *launcher_args, "12", tiled,
-             "2", "1", "1", "72", "16", "16",
+        tiled_log = run([launcher, *launcher_args, str(6*radial_tiles), tiled,
+             str(radial_tiles), "1", "1", "72", "16", "16",
              str(pieces), str(steps)], tiled_env)
         match = re.search(r"steps=(\d+) time=([0-9.eE+-]+)", tiled_log)
         if match is None or int(match.group(1)) != steps:

@@ -23,6 +23,11 @@ The validator checks complete six-face frames and MI files, finite fields,
 positive density/pressure and requested temporal coverage. A successful job
 exit alone is insufficient. Numerical guards in the driver are retained;
 inspect `run.log` too. Neither validator nor a smooth plot proves convergence.
+The inherited final `tiled Earth MHD PASS ... steps=` line prints the requested
+step limit in drive mode, not the executed step count. Use `/step` in the
+last HDF5 frame or the last `earth-drive frame=... step=...` log entry for
+the actual integration count; never interpret the one-million-step cap as
+one million executed steps.
 
 ## Common problems
 
