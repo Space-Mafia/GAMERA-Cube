@@ -11,6 +11,15 @@ The old development narrative is retained in `DEVELOPMENT_HISTORY.md` for
 historical context only; its statements about unfinished features and commands
 are not current student instructions.
 
+Inherited optimized kernel SHA256 checksums (unchanged in this package):
+
+```text
+cubedsphere/cubedsphere_mpi_tile.c
+ab4dd2859b1d13e14b04bb2a8909068d3ecfe2147fb1a827d04feb7c4eae8444
+nonorthogonal/src/nonorthogonal/nonorthogonal_sweep.c
+9f732c6333803da34ea4be015f1683800e635665e86a9128bf94b081d2d46463
+```
+
 Inherited evidence:
 
 - Earth 128×32×32×6, 96 MPI×2 OMP, seven hours: 85 frames,

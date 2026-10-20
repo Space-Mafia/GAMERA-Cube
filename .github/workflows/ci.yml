@@ -24,6 +24,7 @@ jobs:
       - name: MPI and parallel-HDF5 smoke
         run: |
           python3 scripts/run_earth.py --profile smoke --output runs/ci-smoke
+          /usr/bin/python3 scripts/check_initial_imf.py runs/ci-smoke
           /usr/bin/python3 scripts/plot_earth.py runs/ci-smoke --output runs/ci-smoke/preview.png
       - uses: actions/upload-artifact@v4
         if: always()

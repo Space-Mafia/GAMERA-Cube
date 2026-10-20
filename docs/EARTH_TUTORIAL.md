@@ -22,11 +22,15 @@ reference grid or a grid-convergence result.
 
 ```bash
 python3 scripts/run_earth.py --profile smoke --output runs/smoke
+python3 scripts/check_initial_imf.py runs/smoke
 ```
 
 Require exit status zero, `run_complete.txt`, and `EARTH_HDF5_OUTPUT_PASS`
 in `validation.log`. This validates an actual MPI/HDF5 launch, NOT a
 developed magnetosphere. Each output directory must be new.
+The optional Python IMF check needs NumPy/h5py and verifies that far-upstream
+t=0 cells carry (0,0,−5) nT; its 0.001 nT bound is a configuration/output
+check, not a physical-model accuracy claim.
 
 ## 3. Run three physical hours
 
