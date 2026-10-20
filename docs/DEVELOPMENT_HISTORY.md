@@ -1,4 +1,11 @@
-# Cubed-sphere GAMERA MHD (development branch)
+# Historical development record — not current installation instructions
+
+This is an archived upstream narrative. Features were added incrementally;
+statements below about missing functionality describe earlier stages.
+Use the repository README and `docs/EARTH_TUTORIAL.md` for this release.
+Some historical example paths are intentionally not distributed.
+
+## Cubed-sphere GAMERA MHD (development branch)
 
 This directory is the isolated six-block cubed-sphere MHD backend on branch
 `feature/cubed-sphere-mhd-v1`. It is built against the existing
